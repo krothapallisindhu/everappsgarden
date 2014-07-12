@@ -1,0 +1,18 @@
+<html>
+<head>
+<script type="text/javascript">
+	function getEmail(){
+		document.getElementById("compmail").value=document.getElementById("sel_comp").value;
+	}
+</script>
+</head>
+<body>
+	<select name="sel_comp" id="sel_comp" size="1" onchange="getEmail()">
+		<option value="comp1@comp.com">Company 1</option>
+		<option value="comp2@comp.com">Company 2</option>
+		<option value="comp3@comp.com">Company 3</option>
+		<option value="comp4@comp.com">Company 4</option>
+	</select>
+	<input type="text" name="compmail" id="compmail" />
+</body>
+</html>

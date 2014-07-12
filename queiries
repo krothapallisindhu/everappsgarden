@@ -1,0 +1,109 @@
+
+--
+-- Database: `Projects`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ads_info`
+--
+
+CREATE TABLE `eag_apps_info` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `app_name` mediumint(9) NOT NULL,
+  `platform` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+CREATE TABLE `eag_ads_info` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `app_id` mediumint(9) NOT NULL,
+  `ad_type` varchar(255) NOT NULL,
+  `app_store_url` varchar(255) NOT NULL,
+  `ad_image_url` float DEFAULT NULL,
+  `ad_start_date` datetime NOT NULL,
+  `ad_end_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),FOREIGN KEY (app_id) 
+                  REFERENCES eag_apps_info(id)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+CREATE TABLE `eag_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `phone_number` varchar(16) NOT NULL,
+  `username` varchar(16) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `lattitude` varchar(12) NOT NULL,
+  `longitude` varchar(12) NOT NULL,
+  `confirmcode` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+
+INSERT INTO `eag_users` VALUES(48, 'admin', 'admin', 'admin', 'info@everappsgarden.com', '9550500965', 'admin', 'd956d91fecf63f4d761b295dd06e72c0', '', '', 'y');
+
+
+INSERT INTO `eag_users` VALUES(45, 'mahesh', 'company', 'admin', 'maheshbabu.somineni@gmail.com', '8464966798', 'mahesh', 'd956d91fecf63f4d761b295dd06e72c0', '', '', 'y');
+
+--
+-- Dumping data for table `apps_info`
+--
+
+INSERT INTO `tb_apps_info` (`app_id`, `app_name`, `app_dev_url`, `app_live_url`, `app_version`, `app_description`) VALUES
+(1, 'AdvisorVideo', 'http://www.advisorvidoe.com/base_controller.php', 'http://www.advisorvidoe.com/base_controller.php', 1, 'This is the sample application creating for testing services.'),
+(2, 'AdvisorSync', 'http://www.advisorvidoe.com/base_controller.php', 'http://www.advisorvidoe.com/base_controller.php', 1, 'This is the sample application creating for testing services.');
+
+
+
+CREATE TABLE `eag_apps_info` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `app_name` mediumint(9) NOT NULL,
+  `platform` varchar(255) NOT NULL,
+  `certificate` varchar(255) NOT NULL,
+
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+CREATE TABLE `eag_ads_info` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `app_id` mediumint(9) NOT NULL,
+  `ad_type` varchar(255) NOT NULL,
+  `app_store_url` varchar(255) NOT NULL,
+  `ad_image_url` float DEFAULT NULL,
+  `ad_start_date` datetime NOT NULL,
+  `ad_end_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),FOREIGN KEY (app_id) 
+                  REFERENCES eag_apps_info(id)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+
+CREATE TABLE `eag_ads_apps_info` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `app_id` mediumint(9) NOT NULL,
+  `ad_id` mediumint(9) NOT NULL,
+  `ad_start_date` datetime NOT NULL,
+  `ad_end_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),FOREIGN KEY (app_id) 
+                  REFERENCES eag_apps_info(id)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+--
+-- Dumping data for table `apps_info`
+--
+
+INSERT INTO `tb_apps_info` (`app_id`, `app_name`, `app_dev_url`, `app_live_url`, `app_version`, `app_description`) VALUES
+(1, 'AdvisorVideo', 'http://www.advisorvidoe.com/base_controller.php', 'http://www.advisorvidoe.com/base_controller.php', 1, 'This is the sample application creating for testing services.'),
+(2, 'AdvisorSync', 'http://www.advisorvidoe.com/base_controller.php', 'http://www.advisorvidoe.com/base_controller.php', 1, 'This is the sample application creating for testing services.');
+
+
+
+localhost:8888/APP_INFO/base
+_controller.php?action=getappinfo&app_name=AdvisorVideo
